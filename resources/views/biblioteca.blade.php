@@ -5,16 +5,16 @@
 <div id="page-wrapper">
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Documentos</h1>
+            <h1 class="page-header">Biblioteca</h1>
         </div>
     </div>
     <div class="row">
         <div class="col-lg-12">
             <div class="panel-body">
                 <ul class="nav nav-tabs">
-                    <li class="active"><a href="#home" data-toggle="tab">Vigentes</a>
+                    <li class="active"><a href="#home" data-toggle="tab">Papeleria</a>
                     </li>
-                    <li><a href="#profile" data-toggle="tab">Vencidos</a>
+                    <li><a href="#profile" data-toggle="tab">varios papeleria</a>
                     </li>
                 </ul>
                 <div class="tab-content">
@@ -244,7 +244,7 @@
                                 Documentación Vencida
                             </div>
                             <div class="panel-body">
-                                <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example2">
+                                <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
                                         <tr>
                                             <th>Rendering engine</th>

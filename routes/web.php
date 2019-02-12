@@ -18,3 +18,15 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+// CREAR
+Route::post('/admin/documents', 'DocumentController@store'); 
+
+// READ
+Route::get('/admin/documents', 'DocumentController@index'); 
+
+// UPDATE
+Route::post('/admin/documents/update','DocumentController@update');
+ 
+// DELETE
+Route::post('/admin/documents/delete','DocumentController@delete');
