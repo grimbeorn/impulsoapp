@@ -83,9 +83,9 @@
                         <li>
                             <a href="../biblioteca"><i class="fa fa-book"></i> Biblioteca</a>
                         </li>
-                        <li>
+                        <!-- <li>
                             <a href=""><i class="fa fa-lightbulb-o"></i> Proyectos</a>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
             </div>
@@ -112,49 +112,45 @@
     <script src="{{ asset('vendor/datatables-plugins/dataTables.bootstrap.min.js') }}"></script>
     <script src="{{ asset('vendor/datatables-responsive/dataTables.responsive.js') }}"></script>
 
-    <!-- Page-Level Demo Scripts - Tables - Use for reference -->
     <script>
-    $(document).ready(function() {
-        $('#dataTablesexample').DataTable({
-            responsive: true,
-        });
-        $('#dataTablesexample2').DataTable({
-            responsive: true,
-        });
+        $(document).ready(function() {
+            $('#dataTablesexample').DataTable({
+                responsive: true,
+            });
+            $('#dataTablesexample2').DataTable({
+                responsive: true,
+            });
 
-        var dataTablesexample = $('#dataTablesexample').DataTable();  
+            var dataTablesexample = $('#dataTablesexample').DataTable();  
 
-        $('#dataTablesexample').on( 'click', 'tr', function (){
-            if ($(this).hasClass('selected') ) 
-            {
-                $(this).removeClass('selected');
-            }
-            else 
-            {
-                dataTablesexample.$('tr.selected').removeClass('selected');
-                $(this).addClass('selected'); 
-                var id = $(this).find('td:first').text();
-            }
+            $('#dataTablesexample').on( 'click', 'tr', function (){
+                if ($(this).hasClass('selected')) 
+                {
+                    $(this).removeClass('selected');
+                }
+                else 
+                {
+                    dataTablesexample.$('tr.selected').removeClass('selected');
+                    $(this).addClass('selected'); 
+                    var id = $(this).find('td:first').text();
+                }
+            });
+            $('#dataTablesexample2').on( 'click', 'tr', function (){
+                if ($(this).hasClass('selected')) 
+                {
+                    $(this).removeClass('selected');
+                }
+                else 
+                {
+                    dataTablesexample.$('tr.selected').removeClass('selected');
+                    $(this).addClass('selected'); 
+                    var id2 = $(this).find('td:first').text();
+                }
+            });
         });
-        $('#dataTablesexample2').on( 'click', 'tr', function (){
-            if ($(this).hasClass('selected') ) 
-            {
-                $(this).removeClass('selected');
-            }
-            else 
-            {
-                dataTablesexample.$('tr.selected').removeClass('selected');
-                $(this).addClass('selected'); 
-                var id2 = $(this).find('td:first').text();
-            }
-        });
-    
-    });
-
     </script>
 
     <script type="text/javascript">
-
         $('#mEDocumento').on('show.bs.modal', function (event) {
             var button = $(event.relatedTarget)
             var name = button.data('myname')
@@ -167,21 +163,13 @@
             modal.find('.modal-body #description2').val(description);
             modal.find('.modal-body #id2').val(id3);
         })
-
         $('#mDDocumento').on('show.bs.modal', function (event) {
             var button2 = $(event.relatedTarget)
             var id4 = button2.data('myid')
             var modal = $(this)
             modal.find('.modal-body #id4').val(id4);
         })
-        
     </script>
-
-
-
-
-
-
 
 </body>
 

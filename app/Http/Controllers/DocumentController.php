@@ -17,6 +17,17 @@ class DocumentController extends Controller
     // CREATE
     public function store(Request $request)
     {
+        $messages=[
+            'name.required'=>'Es necesario ingresar un nombre',
+            'name.min'=>'El nombre debe contener al menos 3 caracteres',
+            'life.required'=>'Es necesario ingresar una fecha de vigencia',
+        ];
+        $rules=[
+            'name'=>'required|min:3',
+            'life'=>'required'
+        ];
+        $this->validate($request, $rules, $messages);
+
         //dd($request->all());
         $document = new Document();
         $document->name = $request->input('name');
@@ -31,6 +42,17 @@ class DocumentController extends Controller
     // UPDATE
     public function update(Request $request)
     {
+        $messages=[
+            'name2.required'=>'Es necesario ingresar un nombre',
+            'name2.min'=>'El nombre debe contener al menos 3 caracteres',
+            'life2.required'=>'Es necesario ingresar una fecha de vigencia'
+        ];
+        $rules=[
+            'name2'=>'required|min:3',
+            'life2'=>'required'
+        ];
+        $this->validate($request, $rules, $messages);
+
         // dd($request->all());
         $document = Document::findOrFail($request->id2);
         $document->name = $request->input('name2');
@@ -38,7 +60,6 @@ class DocumentController extends Controller
         $document->description = $request->input('description2');
         $document->save();
         return back();
-
     }
 
     // DELETE
@@ -48,7 +69,6 @@ class DocumentController extends Controller
         $document = Document::findOrFail($request->id4);
         $document->delete();
         return back();
-
     }
 
 }

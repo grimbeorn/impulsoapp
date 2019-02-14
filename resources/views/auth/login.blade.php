@@ -18,11 +18,11 @@
                             <div class="form-group">
                                 <input id="password" placeholder="contraseña" type="password" class="form-control" name="password" value="" required>
                             </div>
-                            <div class="checkbox">
+                            <!-- <div class="checkbox">
                                 <label>
                                     <input type="checkbox" value="Remember Me" name="remember" {{ old('remember') ? 'checked' : '' }}>recordar sesión
                                 </label>
-                            </div>
+                            </div> -->
                             <button type="submit" class="btn btn-lg btn-primary btn-block">ingresar</button>
                         </fieldset>
                     </form>

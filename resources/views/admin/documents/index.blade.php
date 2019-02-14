@@ -1,4 +1,4 @@
-@extends('layouts.dashboard')
+@extends('layouts.document')
 
 @section('contenido')
 <div id="page-wrapper">
@@ -7,6 +7,15 @@
             <h1 class="page-header">Documentos</h1>
         </div>
     </div>
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <div class="row">
         <div class="col-lg-12">
             <div class="panel">
@@ -136,7 +145,7 @@
             <form method="post" action="{{ url('admin/documents') }}" >
                 {{ csrf_field() }}
                 <label>* nombre</label>
-                <input class="form-control" type="text" id="name" name="name"><br>
+                <input class="form-control" type="text" id="name" name="name" value="{{ old('name') }}"><br>
                 <label>* vigencia</label>
                 <input type="date" class="form-control" id="life" name="life"><br>
                 <label>descripción</label>
@@ -159,7 +168,7 @@
             <h4 class="modal-title" id="myModalLabel"> Editar Documento</h4>
         </div>
         <div class="modal-body">
-            <form method="post" action="{{ url('admin/documents','update') }}" >
+            <form method="post" action="{{ url('admin/documents/'.$document->id) }}" >
                 {{ csrf_field() }}
                 <input type="hidden" id="id2" name="id2" value=""><br>
                 <label>nombre</label>
@@ -186,7 +195,7 @@
             <h4 class="modal-title" id="myModalLabel"> Desea Eliminar el Documento?</h4>
         </div>
         <div class="modal-body">
-            <form method="post" action="{{ url('admin/documents','delete') }}" >
+            <form method="get" action="{{ url('admin/documents/'.$document->id) }}" >
                 {{ csrf_field() }}
                 <input type="hidden" id="id4" name="id4" value=""><br>
                 <div class="text-right">
